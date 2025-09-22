@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+public class Problem3 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int[] scores = new int[6];
+
+        System.out.println("Enter 6 exam scores:");
+        for (int i = 0; i < scores.length; i++) {
+            scores[i] = sc.nextInt();
+        }
+
+        double sum = 0;
+        for (int score : scores) {
+            sum += score;
+        }
+        double average = sum / scores.length;
+
+        int above = 0, below = 0;
+        for (int score : scores) {
+            if (score > average) above++;
+            else if (score < average) below++;
+        }
+
+        System.out.printf("Average score: %.2f%n", average);
+        System.out.println("Number of scores above average: " + above);
+        System.out.println("Number of scores below average: " + below);
+
+        sc.close();
+    }
+}
